@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Awesome Suite</title>
+    <link rel="stylesheet" href="bootstrap-paper.css" />
+    <script>
+      window.$ = window.jQuery = require('./jquery.js');
+    </script>
+    <script src="jquery.js"></script>
+    <script src="bootstrap.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>The Awesome Suite</h2>
+      <h4>By Matthew Wang</h4>
+
+      <div class="jumbotron">
+        <h1>Is all you do win?</h1>
+        <button class="button btn-success" onclick="yesWinNotification()" id="play">Yes.</button>
+        <button class="button btn-danger" onclick="noWinNotification()" id="pause">No.</button>
+      </div>
+
+      <div class="well well-lg">
+        <h2><span class="glyphicon glyphicon-heart"></span> Made with love from Matthew Wang.</h2>
+        <h3>Built with Electron</h3>
+    </div>
+    <script>
+      function welcomeNotification(){
+        var welcomeNotificationNotif = new Notification('Welcome', {
+          body: 'Wooh! Thanks for clicking me!'
+        });
+      }
+      function yesWinNotification(){
+        var yesWinNotificationNotif = new Notification('You smart.', {
+          body: 'You loyal. You grateful. I appreciate that.'
+        });
+      }
+      function noWinNotification(){
+        var noWinNotificationNotif = new Notification('Congrats.', {
+          body: 'You played yourself.'
+        });
+      }
+      $(document).ready(function() {
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'allidoiswin.mp3');
+
+        audioElement.addEventListener('ended', function() {
+              this.currentTime = 0;
+              this.play();
+          }, false);
+
+          $('#play').click(function() {
+              audioElement.play();
+          });
+
+          $('#pause').click(function() {
+              audioElement.pause();
+          });
+      });
+
+    </script>
+  </body>
+</html>
