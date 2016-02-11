@@ -1,13 +1,23 @@
 {
-  "name": "electron-test",
+  "name": "awesome-suite",
   "version": "0.1.0",
-  "description": "A minimal Electron application",
+  "description": "A bunch of fun-ctions by Matthew Wang.",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malsf21/awesome-suite.git"
+  },
   "author": "Matthew Wang",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/malsf21/awesome-suite/issues"
+  },
+  "homepage": "https://github.com/malsf21/awesome-suite#readme",
   "devDependencies": {
+    "electron-packager": "^5.2.1",
     "electron-prebuilt": "^0.36.0"
   }
 }
