@@ -150,6 +150,11 @@
         $('#breadcrumb-first').attr("role", "tab");
       }
       */
+      main.webContents.on('new-window', function(e, url) {
+        e.preventDefault();
+        require('shell').openExternal(url);
+      });
+
       $(document).ready(function() {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', 'resources/allidoiswin.mp3');
