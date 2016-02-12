@@ -82,8 +82,19 @@
           <div class="jumbotron">
             <h1 class="page-header">The Prime Checker.</h1>
             <h3>Type in the number you want to to check here:</h3>
-            <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
-            <h3><span class="prime-checker"></span></h3>
+            <div class="row">
+              <div class="col-md-8">
+                <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
+              </div>
+              <div class="col-md-3">
+                <h5>Output composite number factors. <span class="label label-danger">Slow</span></h5>
+              </div>
+              <div class="col-md-1">
+                <input type="checkbox" id="composite-factor-toggle" name="composite-factor-toggle" class="toggle">
+                <label for="composite-factor-toggle"></label>
+              </div>
+            </div>
+            <h3><span class="prime-checker break-word"></span></h3>
           </div>
         </div>
 
@@ -95,10 +106,10 @@
               <div class="col-md-8">
                 <input type="number" id="fib-checker" name="fib-checker" class="form-control fib-preview" placeholder="0" min="0">
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <h5>Output entire set</h5>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-1">
                 <input type="checkbox" id="fib-type-toggle" name="fib-type-toggle" class="toggle">
                 <label for="fib-type-toggle"></label>
               </div>
@@ -115,12 +126,12 @@
               <div class="col-md-8">
                 <textarea type="text" id="dna-complement" name="dna-complement" class="form-control dna-preview" placeholder="ACTG"></textarea>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <h5>Complement</h5>
                 </br>
                 <h5>Reverse</h5>
               </div>
-              <div class="col-md-2">
+              <div class="col-md-1">
                 <input type="checkbox" id="dna-complement-toggle" name="dna-complement-toggle" class="toggle">
                 <label for="dna-complement-toggle"></label>
                 <input type="checkbox" id="dna-reverse-toggle" name="dna-reverse-toggle" class="toggle">
@@ -226,6 +237,14 @@
         }
         else{
           $primeoutput = $primeoutput + " is composite!";
+          if($('#composite-factor-toggle').is(':checked')){
+            if ($this.val() >= 1000000){
+              $primeoutput = $primeoutput + "\nThis number is too huge to calculate all of it's factors!";
+            }
+            else{
+              $primeoutput = $primeoutput + "\nIt's factors are: " + listFactors($this.val());
+            }
+          }
         }
         $('.' + $this.attr('id') + '').html($primeoutput);
       });

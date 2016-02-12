@@ -1,9 +1,4 @@
 function checkPrime(num){
-  /*
-  if (num == 0 || num == 1){
-    return false;
-  }
-  */
   if (num == 2 || num == 3){
     return true;
   }
@@ -18,4 +13,14 @@ function checkPrime(num){
     }
     return true;
   }
+}
+function listFactors(num){
+  var factors = [];
+  for (i = 1; i < num; i ++){
+    if (num % i == 0){
+      factors.push(i);
+    }
+  }
+  factors.push(num);
+  return factors.toString();
 }
