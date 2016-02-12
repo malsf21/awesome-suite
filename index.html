@@ -50,6 +50,14 @@
             <li role="presentation"><a href="#bio-dna" aria-controls="dna" role="tab" data-toggle="tab">DNA Reverser/Complementer</a></li>
           </ul>
         </li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Games <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#game-pong" aria-controls="pong" role="tab" data-toggle="tab">Pong</a></li>
+          </ul>
+        </li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
       </ul>
 
@@ -163,6 +171,13 @@
           </div>
         </div>
 
+        <div role="tabpanel" class="tab-pane fade" id="game-pong">
+          <div class="jumbotron">
+            <h1 class="page-header">Pong.</h1>
+            <h3>An age-old classic.</h3>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="settings">
           <div class="jumbotron">
             <h1 class="page-header"><span class="glyphicon glyphicon-cog"></span> Settings.</h1>
@@ -200,6 +215,7 @@
     <script src="js/math-fibonacci.js"></script>
     <script src="js/math-pascal.js"></script>
     <script src="js/bio-dna.js"></script>
+    <script src="js/game-pong.js"></script>
     <script>
       function newNotification(title, content){
         if($('#notif-toggle').is(':checked')){
