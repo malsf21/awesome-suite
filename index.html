@@ -33,6 +33,7 @@
           </a>
           <ul class="dropdown-menu">
             <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
+            <li role="presentation"><a href="#math-fibonacci" aria-controls="math" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
           </ul>
         </li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
@@ -73,6 +74,26 @@
           </div>
         </div>
 
+        <div role="tabpanel" class="tab-pane fade" id="math-fibonacci">
+          <div class="jumbotron">
+            <h1 class="page-header">The Fibonacci Generator.</h1>
+            <h3>Type in which element of the Fibonacci Sequence you want:</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <input type="number" id="fib-checker" name="fib-checker" class="form-control fib-preview" placeholder="0" min="0">
+              </div>
+              <div class="col-md-2">
+                <h5>Output entire set</h5>
+              </div>
+              <div class="col-md-2">
+                <input type="checkbox" id="fib-type-toggle" name="fib-type-toggle" class="toggle">
+                <label for="fib-type-toggle"></label>
+              </div>
+            </div>
+            <h3><span class="fib-checker"></span></h3>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="settings">
           <div class="jumbotron">
             <h1 class="page-header"><span class="glyphicon glyphicon-cog"></span> Settings.</h1>
@@ -101,6 +122,7 @@
         <h3>Built with Electron</h3>
     </div>
     <script src="js/math-prime.js"></script>
+    <script src="js/math-fibonacci.js"></script>
     <script>
       function newNotification(title, content){
         var newNotif = new Notification(title, {
@@ -133,9 +155,12 @@
           });
       });
 
-      $('.prime-preview').change(function(){
+      $('.prime-preview').keyup(function(){
         var $this = $(this);
-        if ($this.val() == 0| $this.val() == 1){
+        if ($this.val() < 0){
+          $('.' + $this.attr('id') + '').html($this.val() + " is too small, please try a larger number!");
+        }
+        else if ($this.val() == 0| $this.val() == 1){
           $('.' + $this.attr('id') + '').html($this.val() + " ain't a prime or composite number! It's special!");
         }
         else if(checkPrime($this.val()) == true){
@@ -144,9 +169,32 @@
         else{
           $('.' + $this.attr('id') + '').html($this.val() + " is composite!");
         }
-        //$('.' + $this.attr('id') + '').html($this.val());
       });
-
+      $('.fib-preview').keyup(function(){
+        var $this = $(this);
+        if($('#fib-type-toggle').is(':checked')){
+          if ($this.val() <= 0){
+            $('.' + $this.attr('id') + '').html($this.val() + " is too small, please try a larger number!");
+          }
+          else if ($this.val() > 100){
+            $('.' + $this.attr('id') + '').html($this.val() + " is too large, please try a smaller number!");
+          }
+          else{
+            $('.' + $this.attr('id') + '').html(loopingFibonacciTotal($this.val()));
+          }
+        }
+        else{
+          if ($this.val() <= 0){
+            $('.' + $this.attr('id') + '').html($this.val() + " is too small, please try a larger number!");
+          }
+          else if ($this.val() >= 1477){
+            $('.' + $this.attr('id') + '').html($this.val() + " is too large, please try a smaller number!");
+          }
+          else{
+            $('.' + $this.attr('id') + '').html(loopingFibonacci($this.val()));
+          }
+        }
+      });
     </script>
   </body>
 </html>
