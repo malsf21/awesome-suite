@@ -5,41 +5,71 @@
     <title>Awesome Suite</title>
     <link rel="stylesheet" href="bootstrap-paper.css" />
     <script>
-      window.$ = window.jQuery = require('./jquery.js');
+      window.$ = window.jQuery = require('./js/jquery.js');
     </script>
-    <script src="jquery.js"></script>
-    <script src="bootstrap.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
   </head>
   <body>
-    <div class="container">
-      <h2>The Awesome Suite</h2>
-      <h4>By Matthew Wang</h4>
+    <div class="container" style="padding-top:20px;">
+      <ol class="breadcrumb">
+        <li><a href="#page-start" class="active">The Awesome Suite</a></li>
+      </ol>
 
-      <div class="jumbotron">
-        <h1>Is all you do win?</h1>
-        <button class="button btn-success" onclick="yesWinNotification()" id="play">Yes.</button>
-        <button class="button btn-danger" onclick="noWinNotification()" id="pause">No.</button>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab">DJ Khaled</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Math <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
+          </ul>
+        </li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active fade in" id="home">
+          <div class="jumbotron">
+            <h1 class="page-header">The Awesome Suite</h1>
+            <h3>By Matthew Wang</h1>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="khaled">
+          <div class="jumbotron">
+            <h1>Is all you do win?</h1>
+            <button class="button btn-success" onclick="newNotification('You smart.', 'You loyal. You grateful. I appreciate that.')" id="play">Yes.</button>
+            <button class="button btn-danger" onclick="newNotification('Congrats.', 'You just played yourself.')" id="pause">No.</button>
+          </div>
+          <div class="well">
+            <h3>DJ Khaled Soundboard</h3>
+            <h5>A work in progress.</h5>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="math">...</div>
+        <div role="tabpanel" class="tab-pane fade" id="math-prime">
+          <div class="jumbotron">
+            <h1>The Prime Checker.</h1>
+            <h3>Type in the number you want to to check here:</h3>
+            <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0">
+            <h3><span class="prime-checker"></span></h3>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
       </div>
 
       <div class="well well-lg">
         <h2><span class="glyphicon glyphicon-heart"></span> Made with love from Matthew Wang.</h2>
         <h3>Built with Electron</h3>
     </div>
+    <script src="js/math-prime.js"></script>
     <script>
-      function welcomeNotification(){
-        var welcomeNotificationNotif = new Notification('Welcome', {
-          body: 'Wooh! Thanks for clicking me!'
-        });
-      }
-      function yesWinNotification(){
-        var yesWinNotificationNotif = new Notification('You smart.', {
-          body: 'You loyal. You grateful. I appreciate that.'
-        });
-      }
-      function noWinNotification(){
-        var noWinNotificationNotif = new Notification('Congrats.', {
-          body: 'You played yourself.'
-        });
+      function newNotification(title, content){
+        var newNotif = new Notification(title, {
+          body: content
+        })
       }
       $(document).ready(function() {
         var audioElement = document.createElement('audio');
@@ -57,6 +87,20 @@
           $('#pause').click(function() {
               audioElement.pause();
           });
+      });
+
+      $('.prime-preview').change(function(){
+        var $this = $(this);
+        if ($this.val() == 0| $this.val() == 1){
+          $('.' + $this.attr('id') + '').html($this.val() + " ain't a prime or composite number! It's special!");
+        }
+        else if(checkPrime($this.val()) == true){
+          $('.' + $this.attr('id') + '').html($this.val() + " is prime!");
+        }
+        else{
+          $('.' + $this.attr('id') + '').html($this.val() + " is composite!");
+        }
+        //$('.' + $this.attr('id') + '').html($this.val());
       });
 
     </script>
