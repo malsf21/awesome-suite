@@ -103,6 +103,15 @@
           <div class="jumbotron">
             <h1 class="page-header"><span class="glyphicon glyphicon-cog"></span> Settings.</h1>
             <h3>Tweak these around to make your user experience awesome!</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Display Notifications</h4>
+              </div>
+              <div class="col-md-4">
+                <input type="checkbox" name="toggle" class="toggle" id="notif-toggle" checked="checked">
+                <label for="notif-toggle"></label>
+              </div>
+            </div>
           </div>
           <div class="jumbotron">
             <h1 class="page-header"><span class="glyphicon glyphicon-wrench"></span> Beta Settings.</h1>
@@ -112,10 +121,8 @@
                 <h4>Test Toggle <span class="label label-danger">Beta</span></h4>
               </div>
               <div class="col-md-4">
-                <div class="wrapper">
-                  <input type="checkbox" name="toggle" class="toggle" id="toggle-test">
-                  <label for="toggle-test"></label>
-                </div>
+                <input type="checkbox" name="toggle" class="toggle" id="toggle-test">
+                <label for="toggle-test"></label>
               </div>
             </div>
           </div>
@@ -129,9 +136,11 @@
     <script src="js/math-fibonacci.js"></script>
     <script>
       function newNotification(title, content){
-        var newNotif = new Notification(title, {
-          body: content
-        })
+        if($('#notif-toggle').is(':checked')){
+          var newNotif = new Notification(title, {
+            body: content
+          })
+        }
       }
       /*
       function updateBreadcrumb(first_update, first_update_location){
