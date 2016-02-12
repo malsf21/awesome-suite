@@ -14,12 +14,19 @@
   <body>
     <div class="container" style="padding-top:20px;">
       <ol class="breadcrumb">
-        <li><a href="#page-start" class="active">The Awesome Suite</a></li>
+        <li><a href="#" class="active">The Awesome Suite</a></li>
+        <!-- AUTO-BREADCRUMB TESTER
+        <li><a href="#home" id="breadcrumb-first">Home</a></li>
+        <li><a href="#" id="second"></a></li>
+      -->
       </ol>
 
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
         <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab">DJ Khaled</a></li>
+        <!-- TESTING AUTO-BREADCRUMB
+        <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab" onclick="updateBreadcrumb('DJ Khaled', '#khaled')">DJ Khaled</a></li>
+        -->
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Math <span class="caret"></span>
@@ -100,6 +107,14 @@
           body: content
         })
       }
+      /*
+      function updateBreadcrumb(first_update, first_update_location){
+        $('#breadcrumb-first').html(first_update);
+        $('#breadcrumb-first').attr("href", first_update_location);
+        $('#breadcrumb-first').attr("data-toggle", "tab");
+        $('#breadcrumb-first').attr("role", "tab");
+      }
+      */
       $(document).ready(function() {
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', 'resources/allidoiswin.mp3');
