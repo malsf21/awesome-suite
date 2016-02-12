@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>Awesome Suite</title>
-    <link rel="stylesheet" href="bootstrap-paper.css" />
+    <link rel="stylesheet" href="css/bootstrap-paper.css" />
+    <link rel="stylesheet" href="css/toggle.css" />
     <script>
       window.$ = window.jQuery = require('./js/jquery.js');
     </script>
@@ -39,7 +40,8 @@
         </div>
         <div role="tabpanel" class="tab-pane fade" id="khaled">
           <div class="jumbotron">
-            <h1>Is all you do win?</h1>
+            <h1 class="page-header">The Full DJ Khaled Experience</h1>
+            <h3>Is all you do win?</h3>
             <button class="button btn-success" onclick="newNotification('You smart.', 'You loyal. You grateful. I appreciate that.')" id="play">Yes.</button>
             <button class="button btn-danger" onclick="newNotification('Congrats.', 'You just played yourself.')" id="pause">No.</button>
           </div>
@@ -48,16 +50,43 @@
             <h5>A work in progress.</h5>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="math">...</div>
+        <div role="tabpanel" class="tab-pane fade" id="example">
+          <div class="jumbotron">
+            <h1 class="page-header">Example Header.</h1>
+            <h3>Example sub-header.</h3>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="math-prime">
           <div class="jumbotron">
-            <h1>The Prime Checker.</h1>
+            <h1 class="page-header">The Prime Checker.</h1>
             <h3>Type in the number you want to to check here:</h3>
-            <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0">
+            <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
             <h3><span class="prime-checker"></span></h3>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+
+        <div role="tabpanel" class="tab-pane fade" id="settings">
+          <div class="jumbotron">
+            <h1 class="page-header"><span class="glyphicon glyphicon-cog"></span> Settings.</h1>
+            <h3>Tweak these around to make your user experience awesome!</h3>
+          </div>
+          <div class="jumbotron">
+            <h1 class="page-header"><span class="glyphicon glyphicon-wrench"></span> Beta Settings.</h1>
+            <h3>Beware! These settings are still in Beta, and they might cause some unwanted consequences!</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Test Toggle <span class="label label-danger">Beta</span></h4>
+              </div>
+              <div class="col-md-4">
+                <div class="wrapper">
+                  <input type="checkbox" name="toggle" class="toggle" id="toggle-test">
+                  <label for="toggle-test"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="well well-lg">
@@ -73,7 +102,7 @@
       }
       $(document).ready(function() {
         var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', 'allidoiswin.mp3');
+        audioElement.setAttribute('src', 'resources/allidoiswin.mp3');
 
         audioElement.addEventListener('ended', function() {
               this.currentTime = 0;
