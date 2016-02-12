@@ -159,7 +159,6 @@ function pong(){
       }
   };
 
-  document.body.appendChild(canvas);
   animate(step);
 
   window.addEventListener("keydown", function (event) {
