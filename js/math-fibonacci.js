@@ -1,3 +1,5 @@
+/*
+Easter Egg :)
 function recursiveFibonacci(n) {
     if(n <= 2) {
         return 1;
@@ -5,6 +7,7 @@ function recursiveFibonacci(n) {
         return this.recursiveFibonacci(n - 1) + this.recursiveFibonacci(n - 2);
     }
 };
+*/
 
 function loopingFibonacci(n) {
     var a = 0;
