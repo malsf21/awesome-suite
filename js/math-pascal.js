@@ -16,7 +16,7 @@ function pascalRecursive(n, a) {
   curTier.push(1);
   a.push(curTier);
 
-  return pascalRecursive(n-1, a);
+  return pascalRecursive(n-1, a).join("</br>");
 }
 
 function pascalSimple(numTiers) {
@@ -35,5 +35,5 @@ function pascalSimple(numTiers) {
     triangle.push(tier);
   }
 
-  return triangle;
+  return triangle.join("</br>");
 }
