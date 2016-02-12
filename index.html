@@ -55,8 +55,8 @@
           <div class="jumbotron">
             <h1 class="page-header">The Full DJ Khaled Experience</h1>
             <h3>Is all you do win?</h3>
-            <button class="button btn-success" onclick="newNotification('You smart.', 'You loyal. You grateful. I appreciate that.')" id="play">Yes.</button>
-            <button class="button btn-danger" onclick="newNotification('Congrats.', 'You just played yourself.')" id="pause">No.</button>
+            <button class="button btn-success" onclick="newNotification('You smart.', 'You loyal. You grateful. I appreciate that.')" id="play-win">Yes.</button>
+            <button class="button btn-danger" onclick="newNotification('Congrats.', 'You just played yourself.')" id="pause-win">No.</button>
           </div>
           <div class="well">
             <h3>DJ Khaled Soundboard</h3>
@@ -150,26 +150,29 @@
         $('#breadcrumb-first').attr("role", "tab");
       }
       */
-      main.webContents.on('new-window', function(e, url) {
-        e.preventDefault();
-        require('shell').openExternal(url);
+
+      const shell = require('electron').shell;
+
+      $(document).on('click', 'a[href^="http"]', function(event) {
+        event.preventDefault();
+        shell.openExternal(this.href);
       });
 
       $(document).ready(function() {
-        var audioElement = document.createElement('audio');
-        audioElement.setAttribute('src', 'resources/allidoiswin.mp3');
+        var audioElementAllIDoIsWin = document.createElement('audio');
+        audioElementAllIDoIsWin.setAttribute('src', 'resources/allidoiswin.mp3');
 
-        audioElement.addEventListener('ended', function() {
+        audioElementAllIDoIsWin.addEventListener('ended', function() {
               this.currentTime = 0;
               this.play();
           }, false);
 
-          $('#play').click(function() {
-              audioElement.play();
+          $('#play-win').click(function() {
+              audioElementAllIDoIsWin.play();
           });
 
-          $('#pause').click(function() {
-              audioElement.pause();
+          $('#pause-win').click(function() {
+              audioElementAllIDoIsWin.pause();
           });
       });
 
@@ -191,6 +194,7 @@
           $('.' + $this.attr('id') + '').html($this.val() + " is composite!");
         }
       });
+      
       $('.fib-preview').keyup(function(){
         var $this = $(this);
         if ($this.val() == null || $this.val() == ""){
