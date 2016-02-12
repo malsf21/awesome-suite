@@ -41,6 +41,14 @@
             <li role="presentation"><a href="#math-fibonacci" aria-controls="math" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
           </ul>
         </li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            Biology <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li role="presentation"><a href="#bio-dna" aria-controls="dna" role="tab" data-toggle="tab">DNA Reverser/Complementer</a></li>
+          </ul>
+        </li>
         <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
       </ul>
 
@@ -99,6 +107,30 @@
           </div>
         </div>
 
+        <div role="tabpanel" class="tab-pane fade" id="bio-dna">
+          <div class="jumbotron">
+            <h1 class="page-header">The DNA Reverser and Complementer.</h1>
+            <h3>Type in the sequence that you want to apply an operation to, and select which operations you want to apply.</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <textarea type="text" id="dna-complement" name="dna-complement" class="form-control dna-preview" placeholder="ACTG"></textarea>
+              </div>
+              <div class="col-md-2">
+                <h5>Complement</h5>
+                </br>
+                <h5>Reverse</h5>
+              </div>
+              <div class="col-md-2">
+                <input type="checkbox" id="dna-complement-toggle" name="dna-complement-toggle" class="toggle">
+                <label for="dna-complement-toggle"></label>
+                <input type="checkbox" id="dna-reverse-toggle" name="dna-reverse-toggle" class="toggle">
+                <label for="dna-reverse-toggle"></label>
+              </div>
+            </div>
+            <h3><span class="dna-complement break-word"></span></h3>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="settings">
           <div class="jumbotron">
             <h1 class="page-header"><span class="glyphicon glyphicon-cog"></span> Settings.</h1>
@@ -134,6 +166,7 @@
     </div>
     <script src="js/math-prime.js"></script>
     <script src="js/math-fibonacci.js"></script>
+    <script src="js/bio-dna.js"></script>
     <script>
       function newNotification(title, content){
         if($('#notif-toggle').is(':checked')){
@@ -194,7 +227,7 @@
           $('.' + $this.attr('id') + '').html($this.val() + " is composite!");
         }
       });
-      
+
       $('.fib-preview').keyup(function(){
         var $this = $(this);
         if ($this.val() == null || $this.val() == ""){
@@ -218,6 +251,23 @@
           else{
             $('.' + $this.attr('id') + '').html(loopingFibonacci($this.val()));
           }
+        }
+      });
+
+      $('.dna-preview').keyup(function(){
+        var $this = $(this);
+        if ($this.val() == null || $this.val() == ""){
+          $('.' + $this.attr('id') + '').html("Awaiting your command!");
+        }
+        else{
+          var $dnaoutput = $this.val();
+          if($('#dna-complement-toggle').is(':checked')){
+            $dnaoutput = dnaComplement($dnaoutput);
+          }
+          if($('#dna-reverse-toggle').is(':checked')){
+            $dnaoutput = reverse($dnaoutput);
+          }
+          $('.' + $this.attr('id') + '').html($dnaoutput);
         }
       });
     </script>
