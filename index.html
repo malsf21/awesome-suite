@@ -211,64 +211,68 @@
 
       $('.prime-preview').keyup(function(){
         var $this = $(this);
+        var $primeoutput = $this.val();
         if ($this.val() == null || $this.val() == ""){
-          $('.' + $this.attr('id') + '').html("Awaiting your command!");
+          $primeoutput = "Awaiting your command.";
         }
         else if ($this.val() < 0){
-          $('.' + $this.attr('id') + '').html($this.val() + " is too small, please try a larger number!");
+          $primeoutput = $primeoutput + " is a bit too small. Try a larger number.";
         }
         else if ($this.val() == 0| $this.val() == 1){
-          $('.' + $this.attr('id') + '').html($this.val() + " ain't a prime or composite number! It's special!");
+          $primeoutput = $primeoutput + " isn't a prime or composite number! It's special!";
         }
         else if(checkPrime($this.val()) == true){
-          $('.' + $this.attr('id') + '').html($this.val() + " is prime!");
+          $primeoutput = $primeoutput + " is prime!";
         }
         else{
-          $('.' + $this.attr('id') + '').html($this.val() + " is composite!");
+          $primeoutput = $primeoutput + " is composite!";
         }
+        $('.' + $this.attr('id') + '').html($primeoutput);
       });
 
       $('.fib-preview').keyup(function(){
         var $this = $(this);
+        var $fiboutput = $this.val();
         if ($this.val() == null || $this.val() == ""){
-          $('.' + $this.attr('id') + '').html("Awaiting your command!");
+          $fiboutput = "Awaiting your command.";
         }
         else if ($this.val() <= 0){
-          $('.' + $this.attr('id') + '').html($this.val() + " is too small, please try a larger number!");
+          $fiboutput = $fiboutput + " is a bit too small. Try a larger number.";
         }
         else if($('#fib-type-toggle').is(':checked')){
           if ($this.val() > 100){
-            $('.' + $this.attr('id') + '').html($this.val() + " is too large, please try a smaller number!");
+            $fiboutput = $fiboutput + " is a bit too large. Try a smaller number.";
           }
           else{
-            $('.' + $this.attr('id') + '').html(loopingFibonacciTotal($this.val()));
+            $fiboutput = loopingFibonacciTotal($fiboutput);
           }
         }
         else{
           if ($this.val() >= 1477){
-            $('.' + $this.attr('id') + '').html($this.val() + " is too large, please try a smaller number!");
+            $fiboutput = $fiboutput + " is a bit too large. Try a smaller number.";
           }
           else{
-            $('.' + $this.attr('id') + '').html(loopingFibonacci($this.val()));
+            $fiboutput = loopingFibonacci($fiboutput);
           }
         }
+        $('.' + $this.attr('id') + '').html($fiboutput);
       });
 
       $('.dna-preview').keyup(function(){
         var $this = $(this);
+        $dnaoutput = $this.val();
         if ($this.val() == null || $this.val() == ""){
-          $('.' + $this.attr('id') + '').html("Awaiting your command!");
+          $dnaoutput = "Awaiting your command!";
         }
         else{
-          var $dnaoutput = $this.val();
           if($('#dna-complement-toggle').is(':checked')){
             $dnaoutput = dnaComplement($dnaoutput);
           }
           if($('#dna-reverse-toggle').is(':checked')){
             $dnaoutput = reverse($dnaoutput);
           }
-          $('.' + $this.attr('id') + '').html($dnaoutput);
         }
+        $('.' + $this.attr('id') + '').html($dnaoutput);
       });
     </script>
   </body>
