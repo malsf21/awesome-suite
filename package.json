@@ -1,6 +1,6 @@
 {
   "name": "awesome-suite",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "A bunch of fun-ctions by Matthew Wang.",
   "main": "main.js",
   "scripts": {

@@ -39,6 +39,7 @@
           <ul class="dropdown-menu">
             <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
             <li role="presentation"><a href="#math-fibonacci" aria-controls="math" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
+            <li role="presentation"><a href="#math-pascal" aria-controls="math" role="tab" data-toggle="tab">Pascal's Triangle Generator <span class="label label-danger">Beta</span></a></li>
           </ul>
         </li>
         <li role="presentation" class="dropdown">
@@ -118,6 +119,26 @@
           </div>
         </div>
 
+        <div role="tabpanel" class="tab-pane fade" id="math-pascal">
+          <div class="jumbotron">
+            <h1 class="page-header">The Pascal's Triangle Generator <span class="label label-danger">Beta</span></h1>
+            <h3>Type how many rows you want:</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <input type="number" id="pascal-drawer" name="pascal-drawer" class="form-control pascal-preview" placeholder="0" min="0">
+              </div>
+              <div class="col-md-3">
+                <h5>Use Recursion</h5>
+              </div>
+              <div class="col-md-1">
+                <input type="checkbox" id="pascal-recursion-toggle" name="pascal-recursion-toggle" class="toggle">
+                <label for="pascal-recursion-toggle"></label>
+              </div>
+            </div>
+            <h3><span class="pascal-drawer"></span></h3>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="bio-dna">
           <div class="jumbotron">
             <h1 class="page-header">The DNA Reverser and Complementer.</h1>
@@ -177,6 +198,7 @@
     </div>
     <script src="js/math-prime.js"></script>
     <script src="js/math-fibonacci.js"></script>
+    <script src="js/math-pascal.js"></script>
     <script src="js/bio-dna.js"></script>
     <script>
       function newNotification(title, content){
@@ -194,13 +216,6 @@
         $('#breadcrumb-first').attr("role", "tab");
       }
       */
-
-      const shell = require('electron').shell;
-
-      $(document).on('click', 'a[href^="http"]', function(event) {
-        event.preventDefault();
-        shell.openExternal(this.href);
-      });
 
       $(document).ready(function() {
         var audioElementAllIDoIsWin = document.createElement('audio');
@@ -277,6 +292,26 @@
         $('.' + $this.attr('id') + '').html($fiboutput);
       });
 
+      $('.pascal-preview').keyup(function(){
+        var $this = $(this);
+        var $pascaloutput = $this.val();
+        if ($this.val() == null || $this.val() == ""){
+          $pascal = "Awaiting your command.";
+        }
+        else if ($this.val() <= 0){
+          $pascaloutput = $pascaloutput + " is a bit too small. Try a larger number.";
+        }
+        else{
+          if($('#pascal-recursion-toggle').is(':checked')){
+            $pascaloutput = pascalRecursive($pascaloutput, [[1]]);
+          }
+          else{
+            $pascaloutput = pascalSimple($pascaloutput);
+          }
+        }
+        $('.' + $this.attr('id') + '').html($pascaloutput);
+      });
+
       $('.dna-preview').keyup(function(){
         var $this = $(this);
         $dnaoutput = $this.val();
@@ -292,6 +327,13 @@
           }
         }
         $('.' + $this.attr('id') + '').html($dnaoutput);
+      });
+
+      const shell = require('electron').shell;
+
+      $(document).on('click', 'a[href^="http"]', function(event) {
+        event.preventDefault();
+        shell.openExternal(this.href);
       });
     </script>
   </body>
