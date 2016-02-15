@@ -1,4 +1,4 @@
-# The Awesome Suite
+# [The Awesome Suite](https://malsf21.github.io/awesome-suite/)
 ### By Matthew Wang
 
 ## What is the Awesome Suite?
