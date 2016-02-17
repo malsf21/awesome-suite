@@ -96,7 +96,7 @@
                 <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
               </div>
               <div class="col-md-3">
-                <h5>Output composite number factors. <span class="label label-danger">Slow</span></h5>
+                <h5>Output composite number factors. <span class="label label-warning">Slow</span></h5>
               </div>
               <div class="col-md-1">
                 <input type="checkbox" id="composite-factor-toggle" name="composite-factor-toggle" class="toggle">
@@ -282,10 +282,10 @@
           $primeoutput = $primeoutput + " is composite!";
           if($('#composite-factor-toggle').is(':checked')){
             if ($this.val() >= 1000000){
-              $primeoutput = $primeoutput + "\nThis number is too huge to calculate all of it's factors!";
+              $primeoutput = $primeoutput + "\nThis number is too huge to calculate all of its factors!";
             }
             else{
-              $primeoutput = $primeoutput + "\nIt's factors are: " + listFactors($this.val());
+              $primeoutput = $primeoutput + "\nIts factors are: " + listFactors($this.val());
             }
           }
         }
@@ -328,6 +328,9 @@
         }
         else if ($this.val() <= 0){
           $pascaloutput = $pascaloutput + " is a bit too small. Try a larger number.";
+        }
+        else if ($this.val() >= 256){
+          $pascaloutput = $pascaloutput + " is a bit too large. Try a smaller number.";
         }
         else{
           if($('#pascal-recursion-toggle').is(':checked')){
