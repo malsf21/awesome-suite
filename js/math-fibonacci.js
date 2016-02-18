@@ -35,3 +35,31 @@ function loopingFibonacciTotal(n) {
     }
     return output.toString();
 };
+
+$('.fib-preview').keyup(function(){
+  var $this = $(this);
+  var $fiboutput = $this.val();
+  if ($this.val() == null || $this.val() == ""){
+    $fiboutput = "Awaiting your command.";
+  }
+  else if ($this.val() <= 0){
+    $fiboutput = $fiboutput + " is a bit too small. Try a larger number.";
+  }
+  else if($('#fib-type-toggle').is(':checked')){
+    if ($this.val() > 100){
+      $fiboutput = $fiboutput + " is a bit too large. Try a smaller number.";
+    }
+    else{
+      $fiboutput = loopingFibonacciTotal($fiboutput);
+    }
+  }
+  else{
+    if ($this.val() >= 1477){
+      $fiboutput = $fiboutput + " is a bit too large. Try a smaller number.";
+    }
+    else{
+      $fiboutput = loopingFibonacci($fiboutput);
+    }
+  }
+  $('.' + $this.attr('id') + '').html($fiboutput);
+});

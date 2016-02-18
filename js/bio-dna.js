@@ -19,3 +19,20 @@ function dnaComplement(line){
   }
   return complement;
 }
+
+$('.dna-preview').keyup(function(){
+  var $this = $(this);
+  $dnaoutput = $this.val();
+  if ($this.val() == null || $this.val() == ""){
+    $dnaoutput = "Awaiting your command!";
+  }
+  else{
+    if($('#dna-complement-toggle').is(':checked')){
+      $dnaoutput = dnaComplement($dnaoutput);
+    }
+    if($('#dna-reverse-toggle').is(':checked')){
+      $dnaoutput = reverse($dnaoutput);
+    }
+  }
+  $('.' + $this.attr('id') + '').html($dnaoutput);
+});

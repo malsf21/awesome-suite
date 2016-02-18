@@ -37,3 +37,26 @@ function pascalSimple(numTiers) {
 
   return triangle.join("</br>");
 }
+
+$('.pascal-preview').keyup(function(){
+  var $this = $(this);
+  var $pascaloutput = $this.val();
+  if ($this.val() == null || $this.val() == ""){
+    $pascal = "Awaiting your command.";
+  }
+  else if ($this.val() <= 0){
+    $pascaloutput = $pascaloutput + " is a bit too small. Try a larger number.";
+  }
+  else if ($this.val() >= 256){
+    $pascaloutput = $pascaloutput + " is a bit too large. Try a smaller number.";
+  }
+  else{
+    if($('#pascal-recursion-toggle').is(':checked')){
+      $pascaloutput = pascalRecursive($pascaloutput, [[1]]);
+    }
+    else{
+      $pascaloutput = pascalSimple($pascaloutput);
+    }
+  }
+  $('.' + $this.attr('id') + '').html($pascaloutput);
+});

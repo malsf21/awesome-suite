@@ -24,3 +24,32 @@ function listFactors(num){
   factors.push(num);
   return factors.toString();
 }
+
+$('.prime-preview').keyup(function(){
+  var $this = $(this);
+  var $primeoutput = $this.val();
+  if ($this.val() == null || $this.val() == ""){
+    $primeoutput = "Awaiting your command.";
+  }
+  else if ($this.val() < 0){
+    $primeoutput = $primeoutput + " is a bit too small. Try a larger number.";
+  }
+  else if ($this.val() == 0| $this.val() == 1){
+    $primeoutput = $primeoutput + " isn't a prime or composite number! It's special!";
+  }
+  else if(checkPrime($this.val()) == true){
+    $primeoutput = $primeoutput + " is prime!";
+  }
+  else{
+    $primeoutput = $primeoutput + " is composite!";
+    if($('#composite-factor-toggle').is(':checked')){
+      if ($this.val() >= 1000000){
+        $primeoutput = $primeoutput + "\nThis number is too huge to calculate all of its factors!";
+      }
+      else{
+        $primeoutput = $primeoutput + "\nIts factors are: " + listFactors($this.val());
+      }
+    }
+  }
+  $('.' + $this.attr('id') + '').html($primeoutput);
+});
