@@ -14,6 +14,16 @@
       .break-word {
         word-wrap: break-word;
       }
+      .bulletin-wrapper{
+				height:256px;
+				overflow-y:auto;
+			}
+      .bulletin-title{
+        font-weight: bold;
+      }
+      .bulletin-date{
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
@@ -67,6 +77,43 @@
             <h1 class="page-header">The Awesome Suite</h1>
             <h3>By Matthew Wang</h1>
           </div>
+          <div class="jumbotron">
+            <div class="bulletin-wrapper">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="bulletin-title">Random News Sample! <span class="label label-info">News</span></h3>
+                </div>
+                <div class="panel-body">
+                  <div class="bulletin-date">
+                    February 30th 2016
+                  </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam sem. Etiam viverra metus quis ex consequat, sed lacinia nulla eleifend. Pellentesque interdum quis lorem non feugiat. Pellentesque porta tellus vitae eros interdum, non aliquam ex mollis. Nunc commodo, lacus nec fermentum feugiat, neque mauris consectetur odio, id tincidunt diam augue a odio. Nulla rhoncus justo risus, sit amet aliquam enim mattis a. Donec a lectus justo.
+                </div>
+              </div>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="bulletin-title">Random News Sample! <span class="label label-info">News</span></h3>
+                </div>
+                <div class="panel-body">
+                  <div class="bulletin-date">
+                    February 30th 2016
+                  </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam sem. Etiam viverra metus quis ex consequat, sed lacinia nulla eleifend. Pellentesque interdum quis lorem non feugiat. Pellentesque porta tellus vitae eros interdum, non aliquam ex mollis. Nunc commodo, lacus nec fermentum feugiat, neque mauris consectetur odio, id tincidunt diam augue a odio. Nulla rhoncus justo risus, sit amet aliquam enim mattis a. Donec a lectus justo.
+                </div>
+              </div>
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="bulletin-title">Random News Sample! <span class="label label-info">News</span></h3>
+                </div>
+                <div class="panel-body">
+                  <div class="bulletin-date">
+                    February 30th 2016
+                  </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam sem. Etiam viverra metus quis ex consequat, sed lacinia nulla eleifend. Pellentesque interdum quis lorem non feugiat. Pellentesque porta tellus vitae eros interdum, non aliquam ex mollis. Nunc commodo, lacus nec fermentum feugiat, neque mauris consectetur odio, id tincidunt diam augue a odio. Nulla rhoncus justo risus, sit amet aliquam enim mattis a. Donec a lectus justo.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div role="tabpanel" class="tab-pane fade" id="khaled">
           <div class="jumbotron">
@@ -78,12 +125,6 @@
           <div class="well">
             <h3>DJ Khaled Soundboard</h3>
             <h5>A work in progress.</h5>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane fade" id="example">
-          <div class="jumbotron">
-            <h1 class="page-header">Example Header.</h1>
-            <h3>Example sub-header.</h3>
           </div>
         </div>
 
@@ -262,7 +303,7 @@
               audioElementAllIDoIsWin.pause();
           });
       });
-      
+
       const shell = require('electron').shell;
 
       $(document).on('click', 'a[href^="http"]', function(event) {
