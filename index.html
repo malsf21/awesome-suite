@@ -28,20 +28,14 @@
   </head>
   <body>
     <div class="container" style="padding-top:20px;">
-      <ol class="breadcrumb">
-        <li><a href="#" class="active">The Awesome Suite</a></li>
-        <!-- AUTO-BREADCRUMB TESTER
-        <li><a href="#home" id="breadcrumb-first">Home</a></li>
-        <li><a href="#" id="second"></a></li>
-      -->
-      </ol>
+      <div class="alert alert-success alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        Welcome to Awesome Suite Version 0.3.0! If you encounter any bugs, or have some fature requests, just drop by <a href="https://github.com/malsf21/awesome-suite">the GitHub Repository</a>.
+      </div>
 
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
         <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab">DJ Khaled</a></li>
-        <!-- TESTING AUTO-BREADCRUMB
-        <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab" onclick="updateBreadcrumb('DJ Khaled', '#khaled')">DJ Khaled</a></li>
-        -->
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Math <span class="caret"></span>
@@ -263,6 +257,7 @@
 
       <div class="well well-lg" style="text-align:right;">
         <h3><span class="glyphicon glyphicon-heart"></span> <a href="https://github.com/malsf21/awesome-suite">Made</a> with love by <a href="http://twitter.com/malsf21">Matthew Wang</a>, built with <a href="http://electron.atom.io/">Electron</a></h3>
+      </div>
     </div>
     <script src="js/math-prime.js"></script>
     <script src="js/math-fibonacci.js"></script>
