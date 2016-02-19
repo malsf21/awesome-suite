@@ -40,7 +40,6 @@ var stats = function (){
 var step = function () {
     update();
     render();
-    stats();
     animate(step);
 };
 
@@ -113,6 +112,7 @@ Player.prototype.update = function () {
            playerScore = 0;
            computerScore = 0;
            reset = true;
+           stats();
         }
         else if (pause == false){
           if (value == 37) {
@@ -172,6 +172,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
         this.x = 200;
         this.y = 200;
         playerScore += 1;
+        stats();
       }
       if (this.y > 400){ // Player Loses
         this.x_speed = 0;
@@ -179,6 +180,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
         this.x = 200;
         this.y = 200;
         computerScore += 1;
+        stats();
       }
 
       if (top_y > 300) {
