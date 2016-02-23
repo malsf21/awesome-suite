@@ -17,12 +17,12 @@ function quadratic(A,B,C){
 		return "There are no real roots.";
 	}
 	else{
-		var root1 = (-B + /* SQUARE ROOT */ discriminate(A,B,C))/(2*A);
+		var root1 = (-B + Math.sqrt(discriminate(A,B,C)))/(2*A);
 		if (numRoots(A,B,C) == 1){
 			return "The only root is " + root1;
 		}
 		else{
-			var root2 = (-B - /* SQUARE ROOT */ discriminate(A,B,C))/(2*A);
+			var root2 = (-B - Math.sqrt(discriminate(A,B,C)))/(2*A);
 			return "The two roots are " + root1 + " and " + root2;
 		}
 	}
