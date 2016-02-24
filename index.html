@@ -46,9 +46,10 @@
             Math <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
             <li role="presentation"><a href="#math-fibonacci" aria-controls="math" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
             <li role="presentation"><a href="#math-pascal" aria-controls="math" role="tab" data-toggle="tab">Pascal's Triangle Generator</a></li>
+            <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
+            <li role="presentation"><a href="#math-quadratic" aria-controls="math" role="tab" data-toggle="tab">Quadratic Solver</a></li>
           </ul>
         </li>
         <li role="presentation" class="dropdown">
@@ -134,26 +135,6 @@
           </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane fade" id="math-prime">
-          <div class="jumbotron">
-            <h1 class="page-header">The Prime Checker.</h1>
-            <h3>Type in the number you want to to check here:</h3>
-            <div class="row">
-              <div class="col-md-8">
-                <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
-              </div>
-              <div class="col-md-3">
-                <h5>Output composite number factors. <span class="label label-warning">Slow</span></h5>
-              </div>
-              <div class="col-md-1">
-                <input type="checkbox" id="composite-factor-toggle" name="composite-factor-toggle" class="toggle">
-                <label for="composite-factor-toggle"></label>
-              </div>
-            </div>
-            <h3><span class="prime-checker break-word"></span></h3>
-          </div>
-        </div>
-
         <div role="tabpanel" class="tab-pane fade" id="math-fibonacci">
           <div class="jumbotron">
             <h1 class="page-header">The Fibonacci Generator.</h1>
@@ -191,6 +172,57 @@
               </div>
             </div>
             <div class="pascal-drawer" style="text-align:center"></div>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="math-prime">
+          <div class="jumbotron">
+            <h1 class="page-header">The Prime Checker.</h1>
+            <h3>Type in the number you want to to check here:</h3>
+            <div class="row">
+              <div class="col-md-8">
+                <input type="number" id="prime-checker" name="prime-checker" class="form-control prime-preview" placeholder="0" min="0">
+              </div>
+              <div class="col-md-3">
+                <h5>Output composite number factors. <span class="label label-warning">Slow</span></h5>
+              </div>
+              <div class="col-md-1">
+                <input type="checkbox" id="composite-factor-toggle" name="composite-factor-toggle" class="toggle">
+                <label for="composite-factor-toggle"></label>
+              </div>
+            </div>
+            <h3><span class="prime-checker break-word"></span></h3>
+          </div>
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="math-quadratic">
+          <div class="jumbotron">
+            <h1 class="page-header">The Quadratic Solver.</h1>
+            <h3>Type in A, B, and C!</h3>
+            <div class="row">
+              <div class="col-md-1">
+                <input type="number" id="quadratic-preview-a" name="quadratic-preview-a" class="form-control quadratic-preview" placeholder="A">
+              </div>
+              <div class="col-md-1">
+                <h4>x<sup>2</sup> +</h4>
+              </div>
+              <div class="col-md-1">
+                <input type="number" id="quadratic-preview-b" name="quadratic-preview-b" class="form-control quadratic-preview" placeholder="B">
+              </div>
+              <div class="col-md-1">
+                <h4>x +</h4>
+              </div>
+              <div class="col-md-1">
+                <input type="number" id="quadratic-preview-c" name="quadratic-preview-c" class="form-control quadratic-preview" placeholder="C">
+              </div>
+              <div class="col-md-1">
+                <h4>= 0</h4>
+              </div>
+              <!--
+              <div class="col-md-7">
+              </div>-->
+            </div>
+            <h3><span class="quadratic-preview-answer"></span></h3>
           </div>
         </div>
 
@@ -271,9 +303,10 @@
         <h3><span class="glyphicon glyphicon-heart"></span> <a href="https://github.com/malsf21/awesome-suite">Made</a> with love by <a href="http://twitter.com/malsf21">Matthew Wang</a>, built with <a href="http://electron.atom.io/">Electron</a></h3>
       </div>
     </div>
-    <script src="js/math-prime.js"></script>
     <script src="js/math-fibonacci.js"></script>
     <script src="js/math-pascal.js"></script>
+    <script src="js/math-prime.js"></script>
+    <script src="js/math-quadratic.js"></script>
     <script src="js/bio-dna.js"></script>
     <script src="js/game-pong.js"></script>
     <script>

@@ -17,13 +17,26 @@ function quadratic(A,B,C){
 		return "There are no real roots.";
 	}
 	else{
-		var root1 = (-B + Math.sqrt(discriminate(A,B,C)))/(2*A);
+		var root1 = (-B - Math.sqrt(discriminate(A,B,C)))/(2*A);
 		if (numRoots(A,B,C) == 1){
-			return "The only root is " + root1;
+			return "The only root is " + root1*-1 + ".";
 		}
 		else{
-			var root2 = (-B - Math.sqrt(discriminate(A,B,C)))/(2*A);
-			return "The two roots are " + root1 + " and " + root2;
+			var root2 = (-B + Math.sqrt(discriminate(A,B,C)))/(2*A);
+			return "The two roots are " + root1 + " and " + root2 + ".";
 		}
 	}
 }
+$('.quadratic-preview').keyup(function(){
+  var $quada = $('#quadratic-preview-a').val();
+	var $quadb = $('#quadratic-preview-b').val();
+	var $quadc = $('#quadratic-preview-c').val();
+
+  if ($quada == null || $quada == "" || $quadb == null || $quadb == "" || $quadc == null || $quadc == ""){
+    $quadoutput = "Awaiting your command.";
+  }
+  else{
+    $quadoutput = quadratic($quada, $quadb, $quadc);
+  }
+  $('.quadratic-preview-answer').html($quadoutput);
+});
