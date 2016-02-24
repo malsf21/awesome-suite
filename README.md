@@ -1,6 +1,8 @@
 # [The Awesome Suite](https://malsf21.github.io/awesome-suite/)
 ### By Matthew Wang
 
+#### [Download here.](https://github.com/malsf21/awesome-suite/releases)
+
 ## What is the Awesome Suite?
 The Awesome Suite, to be honest, is just me learning how to use electron and putting into action some really weird ideas. It's not meant to be serious, just lots of love and fun!
 
