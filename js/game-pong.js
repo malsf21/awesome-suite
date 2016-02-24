@@ -15,6 +15,7 @@ var playerScore = 0;
 var computerScore = 0;
 var reset = false;
 var pause = true;
+var scored = false;
 
 var keysDown = {};
 
@@ -71,6 +72,11 @@ Paddle.prototype.move = function (x, y) {
     }
 };
 
+Paddle.prototype.resetX = function (){
+  this.x = 175;
+  this.x_speed = 0;
+}
+
 function Computer() {
     this.paddle = new Paddle(175, 10, 50, 10);
 }
@@ -124,6 +130,13 @@ Player.prototype.update = function () {
           this.paddle.move(0, 0);
         }
     }
+    if (reset == true){
+      this.paddle.resetX();
+    }
+    else if (scored == true){
+      this.paddle.resetX();
+      scored = false;
+    }
 };
 
 function Ball(x, y) {
@@ -172,6 +185,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
         this.x = 200;
         this.y = 200;
         playerScore += 1;
+        scored = true;
         stats();
       }
       if (this.y > 400){ // Player Loses
@@ -180,6 +194,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
         this.x = 200;
         this.y = 200;
         computerScore += 1;
+        scored = true;
         stats();
       }
 
