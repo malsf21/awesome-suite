@@ -1,7 +1,7 @@
 //took this https://robots.thoughtbot.com/pong-clone-in-javascript and added on it
 
 var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-        window.setTimeout(callback, 1000 / 60)
+        window.setTimeout(callback, 1000 / 60);
     };
 
 var canvas = $("#canvas-pong")[0];
@@ -36,7 +36,7 @@ var update = function () {
 var stats = function (){
   $('#playerScore').html(playerScore);
   $('#computerScore').html(computerScore);
-}
+};
 
 var step = function () {
     update();
@@ -75,7 +75,7 @@ Paddle.prototype.move = function (x, y) {
 Paddle.prototype.resetX = function (){
   this.x = 175;
   this.x_speed = 0;
-}
+};
 
 function Computer() {
     this.paddle = new Paddle(175, 10, 50, 10);
@@ -120,7 +120,7 @@ Player.prototype.update = function () {
            reset = true;
            stats();
         }
-        else if (pause == false){
+        else if (pause === false){
           if (value == 37) {
               this.paddle.move(-4, 0);
           } else if (value == 39) {
@@ -130,10 +130,10 @@ Player.prototype.update = function () {
           this.paddle.move(0, 0);
         }
     }
-    if (reset == true){
+    if (reset === true){
       this.paddle.resetX();
     }
-    else if (scored == true){
+    else if (scored === true){
       this.paddle.resetX();
       scored = false;
     }
@@ -154,7 +154,7 @@ Ball.prototype.render = function () {
 };
 
 Ball.prototype.update = function (paddle1, paddle2) {
-    if (pause == true){
+    if (pause === true){
 
     }
     else{
@@ -164,7 +164,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
       var top_y = this.y - 5;
       var bottom_x = this.x + 5;
       var bottom_y = this.y + 5;
-      if (reset == true){
+      if (reset === true){
         this.x = 200;
         this.y = 200;
         this.x_speed = 0;
