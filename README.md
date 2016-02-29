@@ -1,5 +1,5 @@
 # [The Awesome Suite](https://malsf21.github.io/awesome-suite/)
-### By Matthew Wang
+### [By Matthew Wang](http://matthewwang.me)
 
 #### [Download here.](https://github.com/malsf21/awesome-suite/releases)
 
