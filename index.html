@@ -39,36 +39,37 @@
       </div>
 
       <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li role="presentation"><a href="#khaled" aria-controls="khaled" role="tab" data-toggle="tab">DJ Khaled</a></li>
+        <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#khaled" role="tab" data-toggle="tab">DJ Khaled</a></li>
         <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
             Math <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li role="presentation"><a href="#math-fibonacci" aria-controls="math" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
-            <li role="presentation"><a href="#math-pascal" aria-controls="math" role="tab" data-toggle="tab">Pascal's Triangle Generator</a></li>
-            <li role="presentation"><a href="#math-prime" aria-controls="math" role="tab" data-toggle="tab">Prime Checker</a></li>
-            <li role="presentation"><a href="#math-quadratic" aria-controls="math" role="tab" data-toggle="tab">Quadratic Solver</a></li>
+            <li role="presentation"><a href="#math-fibonacci" role="tab" data-toggle="tab">Fibonacci Number Generator</a></li>
+            <li role="presentation"><a href="#math-pascal" role="tab" data-toggle="tab">Pascal's Triangle Generator</a></li>
+            <li role="presentation"><a href="#math-prime" role="tab" data-toggle="tab">Prime Checker</a></li>
+            <li role="presentation"><a href="#math-quadratic" role="tab" data-toggle="tab">Quadratic Solver</a></li>
           </ul>
         </li>
         <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
             Biology <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li role="presentation"><a href="#bio-dna" aria-controls="dna" role="tab" data-toggle="tab">DNA Reverser/Complementer</a></li>
+            <li role="presentation"><a href="#bio-dna" role="tab" data-toggle="tab">DNA Reverser/Complementer</a></li>
           </ul>
         </li>
         <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
             Games <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li role="presentation"><a href="#game-pong" aria-controls="pong" role="tab" data-toggle="tab">Pong <span class="label label-danger">Beta</span></a></li>
+            <li role="presentation"><a href="#game-bling" role="tab" data-toggle="tab">Bling <span class="label label-danger">Beta</span></a></li>
+            <li role="presentation"><a href="#game-pong" role="tab" data-toggle="tab">Pong <span class="label label-danger">Beta</span></a></li>
           </ul>
         </li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        <li role="presentation"><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
       </ul>
 
       <div class="tab-content">
@@ -240,6 +241,24 @@
           </div>
         </div>
 
+        <div role="tabpanel" class="tab-pane fade" id="game-bling">
+          <div class="jumbotron">
+            <h1 class="page-header">Bling. <span class="label label-danger">Beta</span></h1>
+            <h3>A terribly coded fun game.</h3>
+            <div class="row">
+              <div class="col-md-9">
+                <canvas id="canvas-bling" height="400" width="600"></canvas>
+              </div>
+              <div class="col-md-3">
+                <button class="btn btn-primary" onclick="startBling()">Start Game</button>
+                <h4>Arrow Keys to Move</h4>
+                <h4>Collect those blue rectangles.</h4>
+                <h3>Player Score: <span id="bling-score">0</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div role="tabpanel" class="tab-pane fade" id="game-pong">
           <div class="jumbotron">
             <h1 class="page-header">Pong. <span class="label label-danger">Beta</span></h1>
@@ -300,6 +319,7 @@
     <script src="js/math-quadratic.js"></script>
     <script src="js/bio-dna.js"></script>
     <script src="js/game-pong.js"></script>
+    <script src="js/game-bling.js"></script>
     <script>
       function newNotification(title, content){
         if($('#notif-toggle').is(':checked')){
