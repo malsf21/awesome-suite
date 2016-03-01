@@ -3,8 +3,8 @@ function startBling(){
   var ctx;
   var dx = 5;
   var dy = 5;
-  var x = 400;
-  var y = 300;
+  var x = 300;
+  var y = 150;
   var xspeed = 0;
   var yspeed = 0;
   var ballr = 10;
@@ -15,7 +15,7 @@ function startBling(){
   var bluesize = 50;
   var bluescore = 0;
   var WIDTH = 600;
-  var HEIGHT = 400;
+  var HEIGHT = 300;
   var bling = new Audio('resources/bling.mp3');
 
   function getRandomInt(min, max) {
@@ -41,24 +41,24 @@ function startBling(){
     var rand = getRandomInt(1,5);
     if (rand == 1){
       bluex = 0;
-      bluey = getRandomInt(50,350);
+      bluey = getRandomInt(50,WIDTH-50);
       bluew = 5;
       blueh = bluesize;
     }
     else if (rand == 2){
-      bluex = getRandomInt(50,750);
+      bluex = getRandomInt(50,WIDTH-50);
       bluey = 0;
       bluew = bluesize;
       blueh = 5;
     }
     else if (rand == 3){
       bluex = WIDTH-5;
-      bluey = getRandomInt(50,350);
+      bluey = getRandomInt(50,HEIGHT-50);
       bluew = 5;
       blueh = bluesize;
     }
     else if (rand == 4){
-      bluex = getRandomInt(50,750);
+      bluex = getRandomInt(50,WIDTH-50);
       bluey = HEIGHT-5;
       bluew = bluesize;
       blueh = 5;
