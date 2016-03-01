@@ -81,52 +81,34 @@
             <div class="bulletin-wrapper">
               <div class="panel panel-primary">
                 <div class="panel-heading">
-                  <h3 class="bulletin-title">Version 0.3.0 Released! <span class="label label-success">Release</span></h3>
+                  <h3 class="bulletin-title" id="bulletin-title-1"> <span class="label" id="bulletin-tag-1"></span></h3>
                 </div>
                 <div class="panel-body">
-                  <div class="bulletin-date">February 23rd 2016</div>
-                  <div class="bulletin-author">Matthew Wang</div>
-                  Man, this release looks pretty awesome! I've added a quadratic solver, this very bulletin, touched up on some UI elements, and squashed a few bugs and inefficiencies.
-                  </br>
-                  </br>
-                  You can find a full changelog <a href="https://github.com/malsf21/awesome-suite/releases">here</a>. Until next time!
+                  <div class="bulletin-date" id="bulletin-date-1"></div>
+                  <div class="bulletin-author" id="bulletin-author-1"></div>
+                  <div id="bulletin-content-1"></div>
                 </div>
               </div>
               <div class="panel panel-primary">
                 <div class="panel-heading">
-                  <h3 class="bulletin-title">Welcome to the Bulletin Board. <span class="label label-info">News</span></h3>
+                  <h3 class="bulletin-title" id="bulletin-title-2"> <span class="label" id="bulletin-tag-2"></span></h3>
                 </div>
                 <div class="panel-body">
-                  <div class="bulletin-date">February 23rd 2016</div>
-                  <div class="bulletin-author">Matthew Wang</div>
-                  Hey there, this is the Awesome Suite Bulletin! Here, I'll post release notes, news about the app, and some helpful tips and tricks about the suite. Right now, this is all manual, but eventually I'll work on making this fetch off of a server and being automatic!
-                  </br>
-                  </br>
-                  Until then, I hope you enjoy the suite. Have fun, and don't hesitate to ask any questions!
-                </div>
-              </div>
-              <!--
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <h3 class="bulletin-title">Random News Sample! <span class="label label-warning">Warning</span></h3>
-                </div>
-                <div class="panel-body">
-                  <div class="bulletin-date">February 30th 2016</div>
-                  <div class="bulletin-author">Matthew Wang</div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam sem. Etiam viverra metus quis ex consequat, sed lacinia nulla eleifend. Pellentesque interdum quis lorem non feugiat. Pellentesque porta tellus vitae eros interdum, non aliquam ex mollis. Nunc commodo, lacus nec fermentum feugiat, neque mauris consectetur odio, id tincidunt diam augue a odio. Nulla rhoncus justo risus, sit amet aliquam enim mattis a. Donec a lectus justo.
+                  <div class="bulletin-date" id="bulletin-date-2"></div>
+                  <div class="bulletin-author" id="bulletin-author-2"></div>
+                  <div id="bulletin-content-2"></div>
                 </div>
               </div>
               <div class="panel panel-primary">
                 <div class="panel-heading">
-                  <h3 class="bulletin-title">Random News Sample! <span class="label label-danger">Urgent</span></h3>
+                  <h3 class="bulletin-title" id="bulletin-title-3"> <span class="label" id="bulletin-tag-3"></span></h3>
                 </div>
                 <div class="panel-body">
-                  <div class="bulletin-date">February 30th 2016</div>
-                  <div class="bulletin-author">Matthew Wang</div>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a diam sem. Etiam viverra metus quis ex consequat, sed lacinia nulla eleifend. Pellentesque interdum quis lorem non feugiat. Pellentesque porta tellus vitae eros interdum, non aliquam ex mollis. Nunc commodo, lacus nec fermentum feugiat, neque mauris consectetur odio, id tincidunt diam augue a odio. Nulla rhoncus justo risus, sit amet aliquam enim mattis a. Donec a lectus justo.
+                  <div class="bulletin-date" id="bulletin-date-3"></div>
+                  <div class="bulletin-author" id="bulletin-author-3"></div>
+                  <div id="bulletin-content-3"></div>
                 </div>
               </div>
-              -->
             </div>
           </div>
         </div>
@@ -311,6 +293,7 @@
         <h3><span class="glyphicon glyphicon-heart"></span> <a href="https://github.com/malsf21/awesome-suite">Made</a> with love by <a href="http://twitter.com/malsf21">Matthew Wang</a>, built with <a href="http://electron.atom.io/">Electron</a></h3>
       </div>
     </div>
+    <script src="js/bulletin-pull"></script>
     <script src="js/math-fibonacci.js"></script>
     <script src="js/math-pascal.js"></script>
     <script src="js/math-prime.js"></script>
@@ -325,13 +308,6 @@
           })
         }
       }
-      /*
-      $.getJSON("IPADDRESS", function(pullBulletin){
-        $.each(pullBulletin, function(key, value){
-            document.write(key+": "+value+"<br />");
-        });
-      });
-      */
       $(document).ready(function() {
         var audioElementAllIDoIsWin = document.createElement('audio');
         audioElementAllIDoIsWin.setAttribute('src', 'resources/allidoiswin.mp3');
