@@ -325,22 +325,28 @@
           })
         }
       }
-
+      /*
+      $.getJSON("IPADDRESS", function(pullBulletin){
+        $.each(pullBulletin, function(key, value){
+            document.write(key+": "+value+"<br />");
+        });
+      });
+      */
       $(document).ready(function() {
         var audioElementAllIDoIsWin = document.createElement('audio');
         audioElementAllIDoIsWin.setAttribute('src', 'resources/allidoiswin.mp3');
 
         audioElementAllIDoIsWin.addEventListener('ended', function() {
-              this.currentTime = 0;
-              this.play();
-          }, false);
+          this.currentTime = 0;
+          this.play();
+        }, false);
 
           $('#play-win').click(function() {
-              audioElementAllIDoIsWin.play();
+            audioElementAllIDoIsWin.play();
           });
 
           $('#pause-win').click(function() {
-              audioElementAllIDoIsWin.pause();
+            audioElementAllIDoIsWin.pause();
           });
       });
 

@@ -1,8 +1,8 @@
 //took this https://robots.thoughtbot.com/pong-clone-in-javascript and added on it
 
 var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
-        window.setTimeout(callback, 1000 / 60);
-    };
+  window.setTimeout(callback, 1000 / 60);
+};
 
 var canvas = $("#canvas-pong")[0];
 var width = 400;
