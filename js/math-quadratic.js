@@ -19,7 +19,7 @@ function quadratic(A,B,C){
 	else{
 		var root1 = (-B - Math.sqrt(discriminate(A,B,C)))/(2*A);
 		if (numRoots(A,B,C) == 1){
-			return "The only root is " + root1*-1 + ".";
+			return "The only root is " + root1 + ".";
 		}
 		else{
 			var root2 = (-B + Math.sqrt(discriminate(A,B,C)))/(2*A);
