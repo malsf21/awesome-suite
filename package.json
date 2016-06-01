@@ -1,6 +1,6 @@
 {
   "name": "awesome-suite",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "A bunch of fun-ctions by Matthew Wang.",
   "main": "main.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/malsf21/awesome-suite#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.36.0"
+    "electron-prebuilt": "^1.2.0"
   }
 }
